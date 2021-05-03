@@ -1,0 +1,7 @@
+curl https://downloads.mysql.com/docs/world_x-db.zip > world_x-db.zip
+sudo apt install unzip
+unzip world_x-db.zip 
+sudo mysql -u root -p
+SOURCE /home/ubuntu/assignment3/world_x-db/world_x.sql
+use world_x;
+show tables;
