@@ -1,0 +1,18 @@
+library(ggplot2)
+Countries <- c('United States','China','India','United 
+               Kingdom','Brazil','Germany','Turkey','France','Australia')
+Doses <- c(213.39,195.02,127.13,43.46,33.81,22.94,20.28,17.45,1.65)
+
+Covid19chart <- data.frame(Countries, Doses)
+million <- "million"
+
+ggplot(Covid19chart,aes(x=reorder(Countries,Doses), y=Doses))+
+  labs(title="COVID-19 vaccine doses administarted, April 20,2021",
+       caption=("Total number of vaccination doses administarted"))+
+  ylab("Doses(per million)")+
+  xlab("Countries")+
+geom_bar(stat = 'identity', aes(fill = Doses))+
+geom_text(aes(label=paste(Doses,million)),y=200,hjust=0.5,color="red")+
+coord_flip()
+
+ggsave("plot.png", )
